@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STREET//TAG — HipHop Jacket Store</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span>STREET</span><b>//</b><span>TAG</span>
+    </a>
+    <nav>
+      <a href="#products">Sản phẩm</a>
+      <a href="#about">Về bộ sưu tập</a>
+      <button id="openAdmin" class="admin-btn">QUẢN LÝ SẢN PHẨM</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">URBAN COLLECTION / 2026</p>
+        <h1>MORE THAN<br><span>JUST CLOTHES.</span></h1>
+        <p class="hero-text">
+          Bộ sưu tập jacket hiphop oversized dành cho streetwear,
+          layering và những outfit mang cá tính riêng.
+        </p>
+        <a class="cta" href="#products">KHÁM PHÁ 6 MẪU <span>→</span></a>
+      </div>
+      <div class="hero-art">
+        <div class="hero-glow"></div>
+        <div class="hero-label">HIPHOP<br>JACKET</div>
+        <div class="hero-lines"></div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div><strong id="productCount">6</strong><span>MẪU ÁO</span></div>
+      <div><strong>OVERSIZE</strong><span>FIT CHỦ ĐẠO</span></div>
+      <div><strong>06</strong><span>DESIGN DROP</span></div>
+      <div><strong>24/7</strong><span>STREET ENERGY</span></div>
+    </section>
+
+    <section id="products" class="products-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">THE DROP</p>
+          <h2>JACKET</h2>
+        </div>
+        <div class="tools">
+          <input id="searchInput" type="search" placeholder="Tìm sản phẩm..." />
+          <select id="sortSelect">
+            <option value="default">Mặc định</option>
+            <option value="priceAsc">Giá thấp → cao</option>
+            <option value="priceDesc">Giá cao → thấp</option>
+            <option value="name">Tên A → Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productGrid" class="product-grid"></div>
+      <p id="emptyState" class="empty hidden">Không tìm thấy sản phẩm.</p>
+    </section>
+
+    <section id="about" class="about">
+      <div>
+        <p class="eyebrow">ABOUT THE DROP</p>
+        <h2>Streetwear không cần<br>xin phép để nổi bật.</h2>
+      </div>
+      <p>
+        Thiết kế lấy cảm hứng từ hiphop, utility wear, graffiti và văn hóa đường phố.
+        Mỗi mẫu tập trung vào form oversized, graphic mạnh và các chi tiết có tính ứng dụng.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <span>STREET//TAG © 2026</span>
+    <span>HIPHOP • STREETWEAR • ATTITUDE</span>
+  </footer>
+
+  <!-- Product detail modal -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-backdrop" data-close="detail"></div>
+    <div class="modal-card detail-card">
+      <button class="close" data-close="detail">×</button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- Admin modal -->
+  <div id="adminModal" class="modal hidden">
+    <div class="modal-backdrop" data-close="admin"></div>
+    <div class="modal-card admin-card">
+      <button class="close" data-close="admin">×</button>
+      <p class="eyebrow">PRODUCT MANAGER</p>
+      <h2>Thêm / xoá sản phẩm</h2>
+
+      <form id="productForm">
+        <div class="form-grid">
+          <label>Tên sản phẩm
+            <input id="name" required placeholder="Ví dụ: Shadow Oversized" />
+          </label>
+          <label>Giá (VNĐ)
+            <input id="price" required type="number" min="0" step="1000" placeholder="899000" />
+          </label>
+          <label>Danh mục
+            <select id="category">
+              <option>Jacket</option>
+              <option>Bomber</option>
+              <option>Puffer</option>
+              <option>Denim</option>
+              <option>Utility</option>
+            </select>
+          </label>
+          <label>Màu chủ đạo
+            <input id="color" required placeholder="Black / Purple" />
+          </label>
+          <label class="full">Mô tả
+            <textarea id="description" rows="3" placeholder="Mô tả ngắn về sản phẩm..."></textarea>
+          </label>
+          <label class="full">Ảnh sản phẩm (URL, tùy chọn)
+            <input id="image" placeholder="https://..." />
+          </label>
+        </div>
+        <button class="save-btn" type="submit">+ THÊM SẢN PHẨM</button>
+      </form>
+
+      <div class="manage-list">
+        <div class="list-head">
+          <span>SẢN PHẨM HIỆN CÓ</span>
+          <button id="resetProducts" class="reset-btn">Khôi phục 6 mẫu gốc</button>
+        </div>
+        <div id="adminList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
